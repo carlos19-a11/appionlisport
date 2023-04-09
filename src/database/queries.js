@@ -27,11 +27,24 @@ const findByUsernameQuery = `
 SELECT * FROM users WHERE username = ?
 `;
 
+const createNewCategory = `INSERT INTO categorias VALUES (null, ?)`;
+const findCategoryById = `SELECT * FROM categorias WHERE categoria_id = ?`;
+const deleteCategory = `DELETE FROM categorias WHERE categoria_id = ?`;
+const allCategory = `SELECT * FROM categorias`;
+
+
+const createNewCategoryQuery = `INSERT INTO  categorias VALUES (null, ?);   `;
+
 module.exports = {
     createDB,
     dropDB,
     createTableUSers,
     createNewUser,
     findUserByEmailQuery,
-    findByUsernameQuery
+    findByUsernameQuery,
+    createNewCategory,
+    findCategoryById,
+    allCategory,
+    deleteCategory
 };
+
