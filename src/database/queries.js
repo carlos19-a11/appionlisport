@@ -33,6 +33,9 @@ const deleteCategory = `DELETE FROM categorias WHERE categoria_id = ?`;
 const allCategory = `SELECT * FROM categorias`;
 
 
+const allProducts = `SELECT * FROM productos; `
+const findByProducts = `SELECT * FROM productos WHERE producto_id  = ? ; `
+
 const createNewCategoryQuery = `INSERT INTO  categorias VALUES (null, ?);   `;
 
 module.exports = {
@@ -45,6 +48,8 @@ module.exports = {
     createNewCategory,
     findCategoryById,
     allCategory,
-    deleteCategory
+    deleteCategory,
+    allProducts,
+    findByProducts
 };
 

@@ -4,6 +4,7 @@ const cors = require('cors');
 
 const authRoute = require('./routes/auth.route');
 const CategoryRoute = require('./routes/category.route');
+const ProductsRoute = require('./routes/products.route');
 
 const { httpLogStream } = require('./utils/logger');
 
@@ -17,6 +18,7 @@ app.use(cors());
 
 app.use('/api/auth', authRoute);
 app.use('/api/category/', CategoryRoute);
+app.use('/api/products/', ProductsRoute);
 
 app.get('/', (req, res) => {
     res.status(200).send({
