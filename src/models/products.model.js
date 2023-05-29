@@ -1,5 +1,5 @@
 const db = require('../config/db.config');
-const { allProducts: allProductsQuery, findByProducts: findByProductsQuery} = require('../database/queries');
+const { allProducts: allProductsQuery, findByProducts: findByProductsQuery, addProductShop: addCarShopQuery} = require('../database/queries');
 const { logger } = require('../utils/logger');
 
 class Products {
@@ -39,6 +39,26 @@ class Products {
             }
             cb({ kind: "not_found" }, null);
         })
+    }
+    static addProductoShop(newUser, cb) {
+        console.log(newUser);
+        db.query(addCarShopQuery, 
+            [
+                newUser.producto_id,
+                newUser.usuario_id,
+                newUser.cantidad
+            ], (err, res) => {
+                if (err) {
+                    logger.error(err.message);
+                    cb(err, null);
+                    return;
+                }
+                cb(null, {
+                    id: newUser.usuario_id,
+                    producto_id: newUser.producto_id,
+                    cantidad: newUser.cantidad
+                });
+        });
     }
 
 }

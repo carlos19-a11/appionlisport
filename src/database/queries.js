@@ -35,7 +35,7 @@ const allCategory = `SELECT * FROM categorias`;
 
 const allProducts = `SELECT * FROM productos; `
 const findByProducts = `SELECT * FROM productos WHERE producto_id  = ? ; `
-
+const addProductShop = `INSERT INTO pedido VALUES (null, ?, ?, ?, NOW()) ; `
 const createNewCategoryQuery = `INSERT INTO  categorias VALUES (null, ?);   `;
 
 module.exports = {
@@ -50,6 +50,7 @@ module.exports = {
     allCategory,
     deleteCategory,
     allProducts,
-    findByProducts
+    findByProducts,
+    addProductShop
 };
 
